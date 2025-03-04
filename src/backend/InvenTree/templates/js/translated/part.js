@@ -140,6 +140,7 @@ function partFields(options={}) {
             icon: 'fa-code-branch',
         },
         description: {},
+        pharm_description: {},
         variant_of: {},
         keywords: {
             icon: 'fa-key',

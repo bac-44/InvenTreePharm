@@ -1068,6 +1068,13 @@ class Part(
         help_text=_('Part description (optional)'),
     )
 
+    pharm_description = models.CharField(
+        max_length=250,
+        blank=True,
+        verbose_name=_('Pharm Description'),
+        help_text=_('Part pharm description (optional)'),
+    )
+
     keywords = models.CharField(
         max_length=250,
         blank=True,

@@ -705,6 +705,7 @@ class PartSerializer(
             'default_location_detail',
             'default_supplier',
             'description',
+            'pharm_description',
             'full_name',
             'image',
             'remote_image',
