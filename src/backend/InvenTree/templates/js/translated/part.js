@@ -2342,7 +2342,7 @@ function loadPartTable(table, url, options={}) {
 
     columns.push({
         field: 'name',
-        title: '{% trans "Part" %}',
+        title: '{% trans "Ingredient" %}',
         switchable: false,
         sortable: !options.params.ordering,
         formatter: function(value, row) {
@@ -2359,7 +2359,7 @@ function loadPartTable(table, url, options={}) {
 
     columns.push({
         field: 'IPN',
-        title: '{% trans "IPN" %}',
+        title: '{% trans "Code" %}',
         sortable: !options.params.ordering
     });
 

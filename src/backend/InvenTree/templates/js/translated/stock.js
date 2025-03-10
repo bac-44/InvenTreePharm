@@ -2076,9 +2076,20 @@ function loadStockTable(table, options) {
         }
     ];
 
+    columns.push({
+        field: 'part_detail.description',
+        title: '{% trans "Description" %}',
+        visible: options.params['part_detail'],
+        switchable: options.params['part_detail'],
+        formatter: function(value, row) {
+            var description = row.part_detail.description;
+            return withTitle(shortenString(description), description);
+        }
+    });
+
     col = {
         field: 'part',
-        title: '{% trans "Part" %}',
+        title: '{% trans "Ingredient" %}',
         sortName: 'part__name',
         visible: options.params['part_detail'],
         switchable: options.params['part_detail'],
@@ -2136,17 +2147,6 @@ function loadStockTable(table, options) {
     }
 
     columns.push(col);
-
-    columns.push({
-        field: 'part_detail.description',
-        title: '{% trans "Description" %}',
-        visible: options.params['part_detail'],
-        switchable: options.params['part_detail'],
-        formatter: function(value, row) {
-            var description = row.part_detail.description;
-            return withTitle(shortenString(description), description);
-        }
-    });
 
     col = {
         field: 'quantity',
