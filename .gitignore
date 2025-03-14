@@ -119,3 +119,6 @@ docs/schema.yml
 docs/docs/api/*.yml
 docs/docs/api/schema/*.yml
 inventree_settings.json
+
+# Pharm
+scripts/csv_to_api/*.csv
