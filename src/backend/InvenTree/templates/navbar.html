@@ -34,7 +34,7 @@
         {% endif %}
         {% if roles.build.view %}
         <li class='nav-item'>
-          <a class='nav-link' href="{% url 'build-index' %}">
+          <a class='nav-link' href='#' onclick="return false;" data-bs-toggle='modal' data-bs-target='#buildNotSupportedModal'>
             <span class='fas fa-tools icon-header'></span>{% trans "Build" %}
           </a>
         </li>
