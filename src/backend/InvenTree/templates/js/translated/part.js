@@ -431,10 +431,10 @@ function createPart(options={}) {
         method: 'POST',
         fields: partFields(options),
         groups: partGroups(),
-        title: '{% trans "Create Part" %}',
+        title: '{% trans "Create Ingredient" %}',
         persist: true,
-        persistMessage: '{% trans "Create another part after this one" %}',
-        successMessage: '{% trans "Part created successfully" %}',
+        persistMessage: '{% trans "Create another ingredient after this one" %}',
+        successMessage: '{% trans "Ingredient  created successfully" %}',
         onSuccess: function(data) {
             // Follow the new part
             location.href = `/part/${data.pk}/`;

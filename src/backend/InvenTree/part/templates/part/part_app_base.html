@@ -5,11 +5,11 @@
 
 {% block page_title %}
 {% if part %}
-{% inventree_title %} | {% trans "Part" %} - {{ part.full_name }}
+{% inventree_title %} | {% trans "Ingredient" %} - {{ part.full_name }}
 {% elif category %}
-{% inventree_title %} | {% trans "Part Category" %} - {{ category }}
+{% inventree_title %} | {% trans "Ingredient Category" %} - {{ category }}
 {% else %}
-{% inventree_title %} | {% trans "Part List" %}
+{% inventree_title %} | {% trans "Ingredient List" %}
 {% endif %}
 {% endblock page_title %}
 

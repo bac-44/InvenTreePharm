@@ -6,7 +6,7 @@
 
 {% trans "Subcategories" as text %}
 {% include "sidebar_item.html" with label="subcategories" text=text icon="fa-sitemap" %}
-{% trans "Parts" as text %}
+{% trans "Ingredients" as text %}
 {% include "sidebar_item.html" with label="parts" text=text icon="fa-shapes" %}
 {% if show_import and user.is_staff and roles.part.add %}
 {% url "part-import" as url %}
