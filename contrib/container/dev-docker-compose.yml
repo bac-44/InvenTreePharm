@@ -49,7 +49,7 @@ services:
             # Mount local source directory to /home/inventree
             - ./:/home/inventree:z
         env_file:
-            - contrib/container/docker.dev.env
+            - ./contrib/container/docker.dev.env
         restart: unless-stopped
 
     # Background worker process handles long-running or periodic tasks
@@ -63,5 +63,5 @@ services:
             # Mount local source directory to /home/inventree
             - ./:/home/inventree:z
         env_file:
-            - contrib/container/docker.dev.env
+            - ./contrib/container/docker.dev.env
         restart: unless-stopped
