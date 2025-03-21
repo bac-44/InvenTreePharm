@@ -330,7 +330,7 @@ export function PartListTable({
 
   const newPart = useCreateApiFormModal({
     url: ApiEndpoints.part_list,
-    title: t`Add Part`,
+    title: t`Add Ingredient`,
     fields: usePartFields({ create: true }),
     initialData: initialPartData,
     follow: true,
@@ -359,7 +359,7 @@ export function PartListTable({
       <AddItemButton
         key='add-part'
         hidden={!user.hasAddRole(UserRoles.part)}
-        tooltip={t`Add Part`}
+        tooltip={t`Add Ingredient`}
         onClick={() => newPart.open()}
       />
     ];

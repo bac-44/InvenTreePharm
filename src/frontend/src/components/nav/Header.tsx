@@ -22,6 +22,8 @@ import { NavigationDrawer } from './NavigationDrawer';
 import { NotificationDrawer } from './NotificationDrawer';
 import { SearchDrawer } from './SearchDrawer';
 
+import { modals } from '@mantine/modals';
+
 export function Header() {
   const [setNavigationOpen, navigationOpen] = useLocalState((state) => [
     state.setNavigationOpen,
@@ -157,9 +159,17 @@ function NavTabs() {
         <Tabs.Tab
           value={tab.name}
           key={tab.name}
-          onClick={(event: any) =>
+          onClick={(event: any) => {
+            if (tab.name === "manufacturing") {
+                modals.open({
+                  title: <span>Info</span>,
+                  size: 'xxl',
+                  children: <span>Manufacturing is not currently supported.</span>,
+                });
+              return;
+            }
             navigateToLink(`/${tab.name}`, navigate, event)
-          }
+          }}
         >
           {tab.text}
         </Tabs.Tab>

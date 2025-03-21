@@ -262,7 +262,7 @@ export default function CategoryDetail() {
       },
       {
         name: 'parts',
-        label: t`Parts`,
+        label: t`Ingredients`,
         icon: <IconCategory />,
         content: (
           <PartListTable

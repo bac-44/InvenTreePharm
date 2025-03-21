@@ -946,7 +946,7 @@ class PartSerializer(
     )
 
     IPN = serializers.CharField(
-        required=False, default='', allow_blank=True, label=_('IPN'), max_length=100
+        required=False, default='', allow_blank=True, label='Code', max_length=100
     )
 
     revision = serializers.CharField(

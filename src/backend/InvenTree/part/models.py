@@ -1097,8 +1097,8 @@ class Part(
         max_length=100,
         blank=True,
         null=True,
-        verbose_name=_('IPN'),
-        help_text=_('Internal Part Number'),
+        verbose_name='Code',
+        help_text=_('Ingredient Code'),
     )
 
     revision = models.CharField(
