@@ -19,5 +19,5 @@ $DOCKER_COMPOSE up -d
 
 # Frontend setup
 # https://github.com/inventree/InvenTree/blob/stable/docs/docs/develop/react-frontend.md
-$DOCKER_COMPOSE run --rm inventree-dev-server invoke int.frontend-install
+$DOCKER_COMPOSE run --rm inventree-dev-server sh -c "invoke int.frontend-install && invoke int.frontend-trans"
 $DOCKER_COMPOSE run --rm -p 5173:5173 inventree-dev-server sh -c "cd src/frontend/ && yarn run dev --host"
