@@ -28,7 +28,7 @@ services:
             - POSTGRES_DB=inventree
         volumes:
           # Map 'data' volume such that postgres database is stored externally
-          - ./data:/var/lib/postgresql/data:z
+          - ./data:/var/lib/postgresql/data
         restart: unless-stopped
 
     # InvenTree web server service
@@ -47,7 +47,7 @@ services:
             - 8000:8000
         volumes:
             # Mount local source directory to /home/inventree
-            - ./:/home/inventree:z
+            - ./:/home/inventree
         env_file:
             - ./contrib/container/docker.dev.env
         restart: unless-stopped
@@ -61,7 +61,7 @@ services:
             - inventree-dev-server
         volumes:
             # Mount local source directory to /home/inventree
-            - ./:/home/inventree:z
+            - ./:/home/inventree
         env_file:
             - ./contrib/container/docker.dev.env
         restart: unless-stopped
