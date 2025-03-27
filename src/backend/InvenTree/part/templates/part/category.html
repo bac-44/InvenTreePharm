@@ -17,7 +17,7 @@
 <span id='category-icon'></span>
 {{ category.name }}
 {% else %}
-{% trans "Ingredients" %}
+{% trans "zzzzzzIngredients" %}
 {% endif %}
 {% endblock heading %}
 
@@ -155,12 +155,12 @@
 <div class='panel panel-hidden' id='panel-parts'>
     <div class='panel-heading'>
         <div class='d-flex flex-wrap'>
-            <h4>{% trans "Ingredients" %}</h4>
+            <h4>{% trans "zzzzIngredients" %}</h4>
             {% include "spacer.html" %}
             <div class='btn-group' role='group'>
                 {% if roles.part.add %}
                 <button type='button' class='btn btn-success' id='part-create' title='{% trans "Create new ingredient" %}'>
-                    <span class='fas fa-plus-circle'></span> {% trans "New Ingredient" %}
+                    <span class='fas fa-plus-circle'></span> {% trans "New zzzzIngredient" %}
                 </button>
                 {% endif %}
             </div>

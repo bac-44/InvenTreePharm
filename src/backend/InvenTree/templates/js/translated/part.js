@@ -431,10 +431,10 @@ function createPart(options={}) {
         method: 'POST',
         fields: partFields(options),
         groups: partGroups(),
-        title: '{% trans "Create Ingredient" %}',
+        title: '{% trans "Create Part" %}',
         persist: true,
-        persistMessage: '{% trans "Create another ingredient after this one" %}',
-        successMessage: '{% trans "Ingredient  created successfully" %}',
+        persistMessage: '{% trans "Create another part after this one" %}',
+        successMessage: '{% trans "Part  created successfully" %}',
         onSuccess: function(data) {
             // Follow the new part
             location.href = `/part/${data.pk}/`;
@@ -2342,7 +2342,7 @@ function loadPartTable(table, url, options={}) {
 
     columns.push({
         field: 'name',
-        title: '{% trans "Ingredient" %}',
+        title: '{% trans "Part" %}',
         switchable: false,
         sortable: !options.params.ordering,
         formatter: function(value, row) {

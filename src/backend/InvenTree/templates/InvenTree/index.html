@@ -33,10 +33,10 @@
 {% to_list setting_part_starred setting_part_latest setting_bom_validation as settings_list_part %}
 
 {% if roles.part.view and True in settings_list_part %}
-addHeaderTitle('{% trans "Ingredients" escape %}');
+addHeaderTitle('{% trans "Parts" escape %}');
 
 {% if setting_part_starred %}
-addHeaderAction('starred-parts', '{% trans "Subscribed Ingredients" escape %}', 'fa-bell');
+addHeaderAction('starred-parts', '{% trans "Subscribed Parts" escape %}', 'fa-bell');
 loadSimplePartTable("#table-starred-parts", "{% url 'api-part-list' %}", {
     name: 'starred-parts',
     params: {

@@ -1098,7 +1098,7 @@ class Part(
         blank=True,
         null=True,
         verbose_name='Code',
-        help_text=_('Ingredient Code'),
+        help_text=_('Ticker Part Code'),
     )
 
     revision = models.CharField(
