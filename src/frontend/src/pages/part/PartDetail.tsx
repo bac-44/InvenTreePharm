@@ -168,9 +168,16 @@ export default function PartDetail() {
       {
         type: 'string',
         name: 'IPN',
-        label: t`IPN`,
+        label: t`Code`,
         copy: true,
         hidden: !part.IPN
+      },
+      {
+        type: 'string',
+        name: 'ndc',
+        label: t`NDC`,
+        copy: true,
+        hidden: !part.ndc
       },
       {
         type: 'string',
@@ -325,6 +332,21 @@ export default function PartDetail() {
     ];
 
     const bl: DetailsField[] = [
+      {
+        type: 'boolean',
+        name: 'hazardous',
+        label: t`Hazardous`
+      },
+      {
+        type: 'boolean',
+        name: 'active_ingredient',
+        label: t`Active Ingredient`
+      },
+      {
+        type: 'boolean',
+        name: 'flavored',
+        label: t`Flavored`
+      },
       {
         type: 'boolean',
         name: 'active',
