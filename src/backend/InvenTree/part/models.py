@@ -1069,7 +1069,7 @@ class Part(
     )
 
     ndc = models.CharField(
-        max_length=250,
+        max_length=15,
         blank=True,
         verbose_name=_('Primary NDC'),
         help_text=_('FDA National Drug Code'),
@@ -1077,51 +1077,57 @@ class Part(
 
     acquistion_unit_cost = models.FloatField(
         blank=True,
+        default=0,
         verbose_name=_('Acquistion Unit Cost'),
         help_text=_('Cost per unit'),
     )
 
     hazardous = models.BooleanField(
         default=False,
-        verbose_name=_('Checkbox'),
+        verbose_name=_('Hazardous'),
         help_text=_('Is this a hazardous drug'),
     )
 
-    is_active = models.BooleanField(
+    active_ingredient = models.BooleanField(
         default=False,
-        verbose_name=_('Checkbox'),
-        help_text=_('Is this a hazardous drug'),
+        verbose_name=_('Active Ingredient'),
+        help_text=_('Active Pharmaceutical Ingredient'),
     )
 
-    is_flavor = models.BooleanField(
+    flavored = models.BooleanField(
         default=False,
-        verbose_name=_('Checkbox'),
-        help_text=_('Flavor'),
+        verbose_name=_('Flavored'),
+        help_text=_('Flavor added'),
     )
 
     consumable = models.BooleanField(
         default=False,
-        verbose_name=_('Checkbox'),
-        help_text=_('Tracked, but not for the expiration date'),
+        verbose_name=_('Consumable'),
+        help_text=_('Tracked ingredient with no expiration date'),
     )
 
     has_activity_factor = models.BooleanField(
         default=False,
-        verbose_name=_('Checkbox'),
-        help_text=_('Active pharmaceutical ingredient'),
+        verbose_name=_('Activity Factor'),
+        help_text=_('Ingredient with varied activity'),
     )
 
     has_pack_stat = models.BooleanField(
         default=False,
-        verbose_name=_('Checkbox'),
-        help_text=_('Pack stats'),
+        verbose_name=_('Has Pack Stat'),
+        help_text=_('Ingredient with pack stats'),
     )
+
+    AUXILLARY_LABELS_CHOICES = [
+        ('May Cause Drowsiness', 'May Cause Drowsiness'), 
+        ('Shake Well', 'Shake Well'),
+        ('Take with food', 'Take with food'),
+    ]
 
     auxillary_labels = models.CharField(
         max_length=100,
-        blank=True,
-        null=True,
-        help_text=_('Part revision or version number'),
+        choices=AUXILLARY_LABELS_CHOICES,
+        help_text=_('Supplemental information'),
         verbose_name=_('Auxillary Labels'),
     )
 
@@ -1145,7 +1151,7 @@ class Part(
 
     IPN = models.CharField(
         max_length=100,
-        blank=True,
+        blank=False,
         null=True,
         verbose_name='Code',
         help_text=_('Ticker Part Code'),

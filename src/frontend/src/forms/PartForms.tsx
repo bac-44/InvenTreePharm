@@ -27,6 +27,8 @@ export function usePartFields({
       },
       name: {},
       IPN: {},
+      ndc: {},
+      auxillary_labels: {},
       description: {},
       revision: {},
       revision_of: {
@@ -55,6 +57,14 @@ export function usePartFields({
           is_active: true
         }
       },
+      acquistion_unit_cost: {},
+      hazardous: {},
+      active_ingredient: {},
+      flavored: {},
+      consumable: {},
+      has_activity_factor: {},
+      has_pack_stat: {},
+
       component: {},
       assembly: {},
       is_template: {},
@@ -71,9 +81,7 @@ export function usePartFields({
         description: t`Subscribe to notifications for this part`,
         disabled: false,
         required: false
-      },
-      acquistion_unit_cost: {},
-      hazardous: {}
+      }
     };
 
     // Additional fields for creation

@@ -760,6 +760,12 @@ class PartSerializer(
             'tags',
             'acquistion_unit_cost',
             'hazardous',
+            'active_ingredient',
+            'flavored',
+            'consumable',
+            'has_activity_factor',
+            'has_pack_stat',
+            'auxillary_labels',
         ]
 
         read_only_fields = ['barcode_hash', 'creation_date']
