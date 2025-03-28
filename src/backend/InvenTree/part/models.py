@@ -1068,11 +1068,61 @@ class Part(
         help_text=_('Part description (optional)'),
     )
 
-    pharm_description = models.CharField(
+    ndc = models.CharField(
         max_length=250,
         blank=True,
-        verbose_name=_('Pharm Description'),
-        help_text=_('Part pharm description (optional)'),
+        verbose_name=_('Primary NDC'),
+        help_text=_('FDA National Drug Code'),
+    )
+
+    acquistion_unit_cost = models.FloatField(
+        blank=True,
+        verbose_name=_('Acquistion Unit Cost'),
+        help_text=_('Cost per unit'),
+    )
+
+    hazardous = models.BooleanField(
+        default=False,
+        verbose_name=_('Checkbox'),
+        help_text=_('Is this a hazardous drug'),
+    )
+
+    is_active = models.BooleanField(
+        default=False,
+        verbose_name=_('Checkbox'),
+        help_text=_('Is this a hazardous drug'),
+    )
+
+    is_flavor = models.BooleanField(
+        default=False,
+        verbose_name=_('Checkbox'),
+        help_text=_('Flavor'),
+    )
+
+    consumable = models.BooleanField(
+        default=False,
+        verbose_name=_('Checkbox'),
+        help_text=_('Tracked, but not for the expiration date'),
+    )
+
+    has_activity_factor = models.BooleanField(
+        default=False,
+        verbose_name=_('Checkbox'),
+        help_text=_('Active pharmaceutical ingredient'),
+    )
+
+    has_pack_stat = models.BooleanField(
+        default=False,
+        verbose_name=_('Checkbox'),
+        help_text=_('Pack stats'),
+    )
+
+    auxillary_labels = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        help_text=_('Part revision or version number'),
+        verbose_name=_('Auxillary Labels'),
     )
 
     keywords = models.CharField(
