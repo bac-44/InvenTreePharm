@@ -758,6 +758,8 @@ class PartSerializer(
             'initial_supplier',
             'copy_category_parameters',
             'tags',
+            'acquistion_unit_cost',
+            'hazardous',
         ]
 
         read_only_fields = ['barcode_hash', 'creation_date']

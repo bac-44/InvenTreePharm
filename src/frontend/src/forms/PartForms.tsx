@@ -71,7 +71,9 @@ export function usePartFields({
         description: t`Subscribe to notifications for this part`,
         disabled: false,
         required: false
-      }
+      },
+      acquistion_unit_cost: {},
+      hazardous: {}
     };
 
     // Additional fields for creation
