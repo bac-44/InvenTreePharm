@@ -328,10 +328,15 @@ export function PartListTable({
     return defaultPartData ?? props.params ?? {};
   }, [defaultPartData, props.params]);
 
+  const fields = usePartFields({ create: true });
+  const shouldDisable = fields.category.exclude === true;
+
   const newPart = useCreateApiFormModal({
     url: ApiEndpoints.part_list,
     title: t`Add Part`,
-    fields: usePartFields({ create: true }),
+    fields: fields,
+    submitDisabled: shouldDisable,
+    postFormContent: shouldDisable ? <strong style={{ color: 'red' }}>This category is not currently supported.</strong> : undefined,
     initialData: initialPartData,
     follow: true,
     modelType: ModelType.part

@@ -8,6 +8,15 @@ import { ApiEndpoints } from '../enums/ApiEndpoints';
 import { apiUrl } from '../states/ApiState';
 import { useGlobalSettingsState } from '../states/SettingsState';
 
+const LAB_EQUIPMENT_CATEGORIES = [
+  'Lab Equipment',
+  'Equipment Lab',
+];
+
+const UNSUPPORTED_CATEGORIES = [
+  'Formula',
+];
+
 /**
  * Construct a set of fields for creating / editing a Part instance
  */
@@ -27,8 +36,10 @@ export function usePartFields({
           structural: false
         },
         onValueChange(value: any, record?: any) {
-          setSelectedCategory(record?.name || '');
-        }
+          const category = record?.name;
+          setSelectedCategory(category || '');
+        },
+        exclude: UNSUPPORTED_CATEGORIES.includes(selectedCategory),
       },
       name: {},
       IPN: {},
@@ -157,10 +168,12 @@ export function usePartFields({
       // b) "Default location" remains displayed
       // c) Add new field "Equipment Type"
       const field = fields[fieldName];
-      if (['Lab Equipment', 'Equipment Lab'].includes(selectedCategory)) {
+      if (LAB_EQUIPMENT_CATEGORIES.includes(selectedCategory)) {
         const shouldShow = ['name', 'default_location', 'equipment_type'].includes(fieldName)
         field.hidden = !shouldShow;  // Hide field
         field.exclude = !shouldShow;  // Don't send to API
+      } else if (UNSUPPORTED_CATEGORIES.includes(selectedCategory)) {
+        field.hidden = true;
       }
     }
 

@@ -101,6 +101,7 @@ export interface ApiFormProps {
   follow?: boolean;
   actions?: ApiFormAction[];
   timeout?: number;
+  submitDisabled?: boolean;
 }
 
 export function OptionsApiForm({
@@ -666,7 +667,7 @@ export function ApiForm({
               variant='filled'
               radius='sm'
               color={props.submitColor ?? 'green'}
-              disabled={isLoading || (props.fetchInitialData && !isDirty)}
+              disabled={isLoading || (props.fetchInitialData && !isDirty) || props.submitDisabled}
             >
               {props.submitText ?? t`Submit`}
             </Button>
