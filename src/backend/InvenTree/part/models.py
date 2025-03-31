@@ -1119,7 +1119,7 @@ class Part(
     )
 
     AUXILLARY_LABELS_CHOICES = [
-        ('May Cause Drowsiness', 'May Cause Drowsiness'), 
+        ('May Cause Drowsiness', 'May Cause Drowsiness'),
         ('Shake Well', 'Shake Well'),
         ('Take with food', 'Take with food'),
         ('', ''),
@@ -1131,6 +1131,7 @@ class Part(
         default='',
         help_text=_('Supplemental information'),
         verbose_name=_('Auxillary Labels'),
+        blank=True,
     )
 
     keywords = models.CharField(
@@ -1153,7 +1154,7 @@ class Part(
 
     IPN = models.CharField(
         max_length=100,
-        blank=False,
+        blank=True,
         null=True,
         verbose_name='Code',
         help_text=_('Ticker Part Code'),
@@ -1376,6 +1377,10 @@ class Part(
 
     last_stocktake = models.DateField(
         blank=True, null=True, verbose_name=_('Last Stocktake')
+    )
+
+    equipment_type = models.TextField(
+        blank=True, default="", verbose_name=_('Equipment Type'),
     )
 
     @property

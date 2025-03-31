@@ -766,6 +766,7 @@ class PartSerializer(
             'has_activity_factor',
             'has_pack_stat',
             'auxillary_labels',
+            'equipment_type',
         ]
 
         read_only_fields = ['barcode_hash', 'creation_date']

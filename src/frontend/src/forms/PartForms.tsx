@@ -18,11 +18,16 @@ export function usePartFields({
 }): ApiFormFieldSet {
   const settings = useGlobalSettingsState();
 
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
+
   return useMemo(() => {
     const fields: ApiFormFieldSet = {
       category: {
         filters: {
           structural: false
+        },
+        onValueChange(value: any, record?: any) {
+          setSelectedCategory(record?.name || '');
         }
       },
       name: {},
@@ -81,7 +86,12 @@ export function usePartFields({
         description: t`Subscribe to notifications for this part`,
         disabled: false,
         required: false
-      }
+      },
+      equipment_type: {
+        // Excluded & hidden by default
+        exclude: true,
+        hidden: true,
+      },
     };
 
     // Additional fields for creation
@@ -135,8 +145,27 @@ export function usePartFields({
       delete fields['starred'];
     }
 
+    for (const fieldName in fields) {
+      if (fieldName === 'category') {
+        // Never hide Category field
+        continue;
+      }
+
+      // Requirement:
+      // Select Lab Equipment - Only following fields are displayed:
+      // a) "Name" remains displayed
+      // b) "Default location" remains displayed
+      // c) Add new field "Equipment Type"
+      const field = fields[fieldName];
+      if (['Lab Equipment', 'Equipment Lab'].includes(selectedCategory)) {
+        const shouldShow = ['name', 'default_location', 'equipment_type'].includes(fieldName)
+        field.hidden = !shouldShow;  // Hide field
+        field.exclude = !shouldShow;  // Don't send to API
+      }
+    }
+
     return fields;
-  }, [create, settings]);
+  }, [create, settings, selectedCategory]);
 }
 
 /**
