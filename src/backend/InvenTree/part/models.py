@@ -1122,11 +1122,13 @@ class Part(
         ('May Cause Drowsiness', 'May Cause Drowsiness'), 
         ('Shake Well', 'Shake Well'),
         ('Take with food', 'Take with food'),
+        ('', ''),
     ]
 
     auxillary_labels = models.CharField(
         max_length=100,
         choices=AUXILLARY_LABELS_CHOICES,
+        default='',
         help_text=_('Supplemental information'),
         verbose_name=_('Auxillary Labels'),
     )
